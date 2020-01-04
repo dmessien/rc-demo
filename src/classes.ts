@@ -1,3 +1,7 @@
+export enum classTypeEnum {
+  'on-demand' = 'On Demand',
+  'live' = 'Live',
+}
 export interface IClass {
   id: number;
   title: string;
@@ -5,10 +9,10 @@ export interface IClass {
   description: string;
   duration: number;
   featuredImage: string;
-  classType: string;
+  classType: 'on-demand' | 'live';
 }
 
-export default [
+const classList: IClass[] = [
   {
     id: 1,
     title: 'Cooking Pasta with Giada De Laurentiis',
@@ -42,7 +46,7 @@ export default [
     classType: 'on-demand',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Comfort Foods with Ree',
     description: "Can't go wrong with Ree",
     instructor: 'Ree Drummond',
@@ -52,3 +56,5 @@ export default [
     classType: 'live',
   },
 ];
+
+export default classList;
