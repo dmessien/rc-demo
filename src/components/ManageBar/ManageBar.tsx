@@ -5,16 +5,15 @@ import Button from '../Button';
 type Props = {
   total: number;
   onOpenCreate: VoidFunction;
-  onToggleDelete: VoidFunction;
 };
 
-const ManageBar = ({ total, onOpenCreate, onToggleDelete }: Props) => (
+const ManageBar = ({ total, onOpenCreate }: Props) => (
   <Bar>
     <h1>My Classes ({total})</h1>
     <ButtonRow>
       <Button onClick={onOpenCreate}>
         <i className="fas fa-plus" />
-        Create New
+        Create
       </Button>
     </ButtonRow>
   </Bar>

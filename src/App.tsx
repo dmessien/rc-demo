@@ -4,7 +4,7 @@ import classList, { IClass } from './classes';
 import NavBar from './NavBar';
 import ClassCard from './components/ClassCard';
 import GlobalStyles from './GlobalStyles';
-import ClassModal from './components/Modal/ClassModal';
+import { ClassModal } from './components/Modal';
 import ManageBar from './components/ManageBar/ManageBar';
 import ClassForm from './components/ClassForm/ClassForm';
 import { MEDIA_QUERY_SMALL, MEDIA_QUERY_MOBILE } from './mediaQueries';
@@ -13,7 +13,6 @@ import EmptyState from './components/EmptyState';
 const App = () => {
   const [classes, setClasses] = useState<IClass[]>([]);
   const [showCreate, setShowCreate] = useState(false);
-  const [deleteMode, setDeleteMode] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(-1);
 
   const selectedClass = useMemo(() => {
@@ -63,7 +62,6 @@ const App = () => {
           <NavBar />
           <ManageBar
             onOpenCreate={() => setShowCreate(true)}
-            onToggleDelete={() => setDeleteMode(!deleteMode)}
             total={classes.length}
           />
           {classes.length === 0 && (
@@ -104,6 +102,7 @@ const Grid = styled.div`
   display: grid;
   min-width: 275px;
   max-width: 2100px;
+  width: 100%;
   margin: 0 auto;
   flex-flow: row wrap;
   align-content: space-around;

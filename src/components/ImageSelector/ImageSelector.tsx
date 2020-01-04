@@ -101,6 +101,8 @@ function ImageSelector({ onSelect }: Props) {
 
   const [text, setText] = useState('');
   const [showModal, setShowModal] = useState(false);
+
+  // Debounce search text so you don't constantly hit the API
   const debouncedText = useDebounce(text, 500);
 
   useEffect(() => {
@@ -136,12 +138,6 @@ function ImageSelector({ onSelect }: Props) {
           }
         })
         .then((res: SearchResponse) => {
-          // Aggregate results data if beyond page 1 for load more effect
-          // if (page > 1) {
-          //   aggregateResults(res.results);
-          // }
-          // setResults(res.results);
-          // setTotalPages(res.total_pages);
           dispatch({
             type: 'SEARCH_REQUEST_SUCCESS',
             payload: res,

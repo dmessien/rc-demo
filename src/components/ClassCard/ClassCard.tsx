@@ -2,6 +2,7 @@ import React from 'react';
 import { IClass } from '../../classes';
 import styled from 'styled-components';
 import { MEDIA_QUERY_SMALL, MEDIA_QUERY_MOBILE } from '../../mediaQueries';
+import Button from '../Button';
 
 type Props = {
   data: IClass;
@@ -88,12 +89,4 @@ const Bubble = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
-`;
-
-const Button = styled.button`
-  background-color: #f2f2f2;
-  width: 100%;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
 `;
